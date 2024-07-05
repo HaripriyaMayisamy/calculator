@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>
+            simple calculator
+        </title>
+        <style>
+            *{
+                margin:0%;
+                padding:0%;
+                box-sizing: border-box;
+                font-family: 'Times New Roman', Times, serif;
+                background: url(img5.jpg);
+                background-size: cover;
+                
+            }
+            .cointainer{
+                height:100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                
+            }
+            .calculate{
+                
+                background-color: rgb(10, 10, 10);
+                padding: 30px;
+                display: grid;
+                border-radius: 40px;
+                grid-template-columns: repeat(4,68px);
+                box-shadow: inset 5px 5px 5px #0a0a0a,
+                                  0px 5px 5px rgb(0,0, 0, 16) ;
+                background:rgba(14, 13, 13, 0.5) ;                            
+                                
+            }
+            input{
+                grid-column: span 4;
+                height:90px;
+                width:279px;
+
+                border-radius: 27px;
+                box-shadow: inset -5px -5px 12px rgb(17, 17, 17),
+                                  0px 5px 5px rgb(10, 10, 12) ;            
+                border:none;    
+                color:rgb(70,rgba(11, 12, 12, 0.884) rgb(12, 11, 11));  
+                font-size: 50px;
+                text-align: end;   
+                margin-top: 30px;
+                margin-bottom: 30px;  
+            }
+            button{
+                height: 48px;
+                width: 58px;
+                background-color: #0d0e0d;
+                box-shadow: -5px -5px 12px #131516,
+                              5px 5px 12px rgb(0,0, 0, 16);
+                border:none;
+                border-radius: 850px;
+                margin: 3px;
+                font-size: 30px;
+            }
+            .cal{
+                width:50px;
+                color: rgb(9, 10, 9);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="cointainer">
+            <div class="calculate">
+            <input type="text" name="input" id="output">
+            <button onclick="Clear('c')" id="clear"> C</button>
+            <button onclick="Display('%')" >%</button>
+            <button onclick="del('del')"  >D</button>
+            <button onclick="Display('/')" >/</button>
+            <button onclick="Display('7')" >7</button>
+            <button onclick="Display('8')" >8</button>
+            <button onclick="Display('9')" >9</button>
+            <button onclick="Display('*')" >*</button>
+            <button onclick="Display('4')" >4</button>
+            <button onclick="Display('5')" >5</button>
+            <button onclick="Display('6')" >6</button>
+            <button onclick="Display('-')" >-</button>
+            <button onclick="Display('1')" >1</button>
+            <button onclick="Display('2')" >2</button>
+            <button onclick="Display('3')" >3</button>
+            <button onclick="Display('+')" >+</button>
+            <button onclick="Display('00')" >00</button>
+            <button onclick="Display('.')" >.</button>
+            <button onclick="Display('0')" >0</button>
+            <button onclick="calculate('')"  class="cal" >=</button>
+            </div>
+        <script>
+            let output=document.getElementById("output");
+            function Display(num){
+                output.value+=num;
+            }
+            function calculate()
+            {
+                try{
+                    output.value=eval(output.value);
+                }
+                catch(err)
+                {
+                    alert("invalid number");
+                }
+            }
+            function Clear(){
+                output.value= "";
+            }
+            function del(){
+                output.value=output.value.slice(0,-1)
+            }
+        </script>
+        </div>
+        </body>
+</html>
